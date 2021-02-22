@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@drawable/background_item_habit"
+    android:padding="14dp"
+    android:layout_margin="4dp">
+
+<!-- почему на превью все норм, а на телефоне не норм?  -->
+<!-- почему если кликнуть на часть слева, то клик есть, а справа нет   -->
+<!-- почему не работает скроллинг справа? Как это устроено?   -->
+
+    <TextView
+        android:id="@+id/habit_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="название"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:padding="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/view_divisor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/habit_title">
+
+        <TextView
+            android:id="@+id/habit_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="тип: хорошая"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/habit_priority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="приоритет: высокий"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/habit_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="повторений: 20"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/habit_frequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="переодичность: 24/7"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_divisor"
+        android:layout_width="0.75dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/habit_title" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_divisor"
+        app:layout_constraintTop_toBottomOf="@id/habit_title">
+
+        <TextView
+            android:id="@+id/habit_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="описание "
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
