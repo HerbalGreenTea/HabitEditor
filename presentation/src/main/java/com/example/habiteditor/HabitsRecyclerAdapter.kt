@@ -2,6 +2,7 @@ package com.example.habiteditor
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doamin.Habit
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.item_habit.view.*
 class HabitsRecyclerAdapter: RecyclerView.Adapter<HabitsRecyclerAdapter.HabitsViewHolder>() {
 
     private var habits = mutableListOf<Habit>()
+    private var onHabitItemClickListener: View.OnClickListener? = null
 
     class HabitsViewHolder(inflater: LayoutInflater, parent: ViewGroup)
         : RecyclerView.ViewHolder(inflater.inflate(R.layout.item_habit, parent, false)) {
@@ -25,10 +27,6 @@ class HabitsRecyclerAdapter: RecyclerView.Adapter<HabitsRecyclerAdapter.HabitsVi
                 habit_frequency.text = habit.frequency.toString()
                 habit_description.text = habit.description
             }
-
-            itemView.setOnClickListener {
-                Log.d("HABITSADAPTER", "ClickOK")
-            }
         }
     }
 
@@ -40,6 +38,9 @@ class HabitsRecyclerAdapter: RecyclerView.Adapter<HabitsRecyclerAdapter.HabitsVi
     override fun onBindViewHolder(holder: HabitsViewHolder, position: Int) {
         val habit = habits[position]
         holder.bind(habit)
+
+        if (onHabitItemClickListener != null)
+            holder.itemView.setOnClickListener(onHabitItemClickListener)
     }
 
     override fun getItemCount(): Int = habits.size
@@ -52,5 +53,9 @@ class HabitsRecyclerAdapter: RecyclerView.Adapter<HabitsRecyclerAdapter.HabitsVi
     fun addItem(habit: Habit) {
         habits.add(habit)
         notifyDataSetChanged()
+    }
+
+    fun setOnOrderClickListener(clickListener: View.OnClickListener) {
+        onHabitItemClickListener = clickListener
     }
 }

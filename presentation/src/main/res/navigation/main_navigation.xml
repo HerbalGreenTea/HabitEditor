@@ -9,5 +9,14 @@
         android:id="@+id/listHabits"
         android:name="com.example.habiteditor.ListHabits"
         android:label="fragment_list_habits"
-        tools:layout="@layout/fragment_list_habits" />
+        tools:layout="@layout/fragment_list_habits" >
+        <action
+            android:id="@+id/action_listHabits_to_createHabitFragment"
+            app:destination="@id/createHabitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createHabitFragment"
+        android:name="com.example.habiteditor.CreateHabitFragment"
+        android:label="fragment_create_habit"
+        tools:layout="@layout/fragment_create_habit" />
 </navigation>

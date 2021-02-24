@@ -3,21 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/background_item_habit"
     android:padding="14dp"
     android:layout_margin="4dp">
 
-<!-- почему на превью все норм, а на телефоне не норм?  -->
 <!-- почему если кликнуть на часть слева, то клик есть, а справа нет   -->
-<!-- почему не работает скроллинг справа? Как это устроено?   -->
+<!-- почему скроллинг справа то работает, то нет? Как это устроено?   -->
 
     <TextView
         android:id="@+id/habit_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="название"
+        android:hint="название"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:padding="3dp"
@@ -26,47 +25,90 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
+        android:id="@+id/layout_type_habit"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/view_divisor"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/habit_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/habit_title">
+        app:layout_constraintEnd_toStartOf="@id/view_divisor"
+        app:layout_constraintBottom_toTopOf="@id/layout_priority_habit"
+        android:gravity="center">
+
+        <TextView
+            style="@style/text_view_item_habit"
+            android:text="@string/item_habit_type"/>
 
         <TextView
             android:id="@+id/habit_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="тип: хорошая"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:hint="хорошая"
+            style="@style/text_view_item_habit"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_priority_habit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/layout_type_habit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_divisor"
+        app:layout_constraintBottom_toTopOf="@id/layout_count_habit"
+        android:gravity="center">
+
+        <TextView
+            style="@style/text_view_item_habit"
+            android:text="@string/item_habit_priority"/>
 
         <TextView
             android:id="@+id/habit_priority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="приоритет: высокий"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:hint="высокий"
+            style="@style/text_view_item_habit"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_count_habit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/layout_priority_habit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_divisor"
+        app:layout_constraintBottom_toTopOf="@id/layout_frequency_habit"
+        android:gravity="center">
+
+        <TextView
+            style="@style/text_view_item_habit"
+            android:text="@string/item_habit_count"/>
 
         <TextView
             android:id="@+id/habit_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="повторений: 20"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:hint="20"
+            style="@style/text_view_item_habit"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_frequency_habit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/layout_count_habit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_divisor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center">
+
+        <TextView
+            style="@style/text_view_item_habit"
+            android:text="@string/item_habit_frequency"/>
 
         <TextView
             android:id="@+id/habit_frequency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="переодичность: 24/7"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:hint="7"
+            style="@style/text_view_item_habit"/>
 
     </LinearLayout>
 
@@ -91,11 +133,9 @@
 
         <TextView
             android:id="@+id/habit_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="описание "
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:hint="описание"
+            style="@style/text_view_item_habit"
+            android:layout_gravity="center_horizontal"/>
 
     </ScrollView>
 

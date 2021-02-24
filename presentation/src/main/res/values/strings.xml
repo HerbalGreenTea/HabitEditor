@@ -2,5 +2,24 @@
     <string name="app_name">habit editor</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="habit_title">название привычки</string>
+    <string name="habit_description">описание привычки</string>
+    <string name="habit_count">количесвто повторений</string>
+    <string name="habit_frequency">переодичность привычки</string>
+    <string name="habit_type_good">хорошая</string>
+    <string name="habit_type_bad">плохая</string>
+    <string name="btn_create_habit">создать привычку</string>
 
+    <string name="item_habit_type">тип: </string>
+    <string name="item_habit_priority">приоритет: </string>
+    <string name="item_habit_count">повторений: </string>
+    <string name="item_habit_frequency">переодичность: </string>
+
+    <string name="toast_empty_field_create_habit">заполните поля названия, повторений и переодичиности привычки</string>
+
+    <string-array name="habit_priority">
+        <item>низкий</item>
+        <item>средний</item>
+        <item>высокий</item>
+    </string-array>
 </resources>
